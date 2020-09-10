@@ -9,6 +9,9 @@
       function kecepatanMaksimal(){
           return "kecepatan maksimal dari mobil ini adalah :".$this->max_speed;
       }
+      function injekGas(){
+          return "Mengalirkan bensin ke ruang bakar, rpm naik, roda berputar";
+      }
   }
    
 //ini merupakan turunan dari class mobil, bagaimana membuat inhereati di sini dengan cara menuliskan extends,
@@ -22,6 +25,13 @@
   class Tesla extends Mobil {
       function selfParking(){
           echo "Parkir Sendiri";
+      }
+      //ada kemampuan overide
+      //kemampuan untuk menimpa fungsi dari parent secara umum
+      function injekGas(){
+        //jika memanggil parent injekGas artinya parent si mobil maka dia akan mengembalikan fungsi dari return bmw tadi
+        //return parent::injekGas();  
+        return "Mengalirkan listrik ke dinamo, rpm naik, roda berputar";
       }
   }
 
@@ -38,8 +48,10 @@ $tesla->mesin = "Listrik";
 $tesla->max_speed = "280km/h";
 
 
-echo $tesla->kecepatanMaksimal();
-
+echo "BMW : ".$bmw->injekGas();
+echo "<br>";
+echo "<br>";
+echo "Tesla : ".$tesla->injekGas();
 
 
 
