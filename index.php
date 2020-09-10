@@ -2,34 +2,49 @@
  
   class mobil {
       public $merk, $tipe, $mesin, $max_speed;
-      function cetakTipe(){
+
+      public function cetakTipe(){
           return $this->tipe;
       }
       function kecepatanMaksimal(){
           return "kecepatan maksimal dari mobil ini adalah :".$this->max_speed;
       }
   }
+   
+//ini merupakan turunan dari class mobil, bagaimana membuat inhereati di sini dengan cara menuliskan extends,
+//artinya class BMW akan memiliki kemamouan yang sama seperti yang dimiliki mobil artinya
 
-$bmw = new mobil;
+  class BMW extends Mobil {
+
+  }
+
+  //tesla mempunyai kelebihan lain misal mempunyai kemampuan parking sendiri
+  class Tesla extends Mobil {
+      function selfParking(){
+          echo "Parkir Sendiri";
+      }
+  }
+
+$bmw = new BMW;
 $bmw ->merk ="BMW";
 $bmw ->tipe ="320i";
 $bmw ->mesin ="2000cc";
 $bmw ->max_speed ="280km/h";
  
-$bmw2 = new mobil;
-$bmw2->merk ="BMW";
-$bmw2->tipe ="320i";
-$bmw2->mesin ="2000cc";
-$bmw2->max_speed ="280km/h";
+$tesla = new Tesla;
+$tesla->merk = "Tesla";
+$tesla->tipe ="Model X";
+$tesla->mesin = "Listrik";
+$tesla->max_speed = "280km/h";
 
-echo "$bmw2->tipe";
-echo "<br>";
-echo "$bmw->tipe";
 
-if($bmw === $bmw2) {
-    echo "sama";
-}else{
-    echo "tidak";
-}
+echo $tesla->kecepatanMaksimal();
+
+
+
+
+
+
+
 
 ?>
